@@ -1,4 +1,4 @@
-import { Check, X, Zap, ImageIcon } from 'lucide-react'
+import { Zap, ImageIcon } from 'lucide-react'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 export default function Balance() {

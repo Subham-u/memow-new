@@ -17,6 +17,7 @@ export const TextRevealByWord: FC<TextRevealByWordProps> = ({
   const targetRef = useRef<HTMLDivElement | null>(null);
 
   const { scrollYProgress } = useScroll({
+    // @ts-ignore
     target: targetRef,
   });
   const words = text.split(" ");
@@ -62,6 +63,7 @@ const Word: FC<WordProps> = ({ children, progress, range }) => {
       <span className={"absolute opacity-30"}>{children}</span>
       <motion.span
         style={{ opacity: opacity }}
+        // @ts-ignore
         className={"text-black dark:text-white"}
       >
         {children}

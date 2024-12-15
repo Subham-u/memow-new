@@ -3,7 +3,6 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Heart, ShoppingCart } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -18,7 +17,7 @@ import { cn } from "@/lib/utils";
 import MobileNav from "./mobile-nav";
 import SearchBar from "./search";
 import LoginModal from "./login-modal";
-import { ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -155,7 +154,14 @@ export default function MainNav() {
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Button variant="ghost" asChild className="font-semibold">
-                    <Link href="/blog">Services</Link>
+                    <Link href="/blog">Blogs</Link>
+                  </Button>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Button variant="ghost" asChild className="font-semibold">
+                    <Link href="/faqs">FAQs</Link>
                   </Button>
                 </NavigationMenuLink>
               </NavigationMenuItem>

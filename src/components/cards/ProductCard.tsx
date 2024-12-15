@@ -3,12 +3,22 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { Eye, Heart, LucideCross, ShoppingBag } from "lucide-react";
-
-import { motion } from "motion/react";
 import React from "react";
+import { motion } from "framer-motion";
+// import React from "react";
+
 
 export default function ProductCard() {
   const [hover, setHover] = React.useState(false);
+
+  // type ForwardedProps = MotionProps & React.HTMLAttributes<HTMLDivElement>;
+
+  // const CustomWrapper = forwardRef<HTMLDivElement, ForwardedProps>(
+  //   ({ className, ...props }, ref) => (
+  //     <motion.div ref={ref} className={className} {...props} />
+  //   )
+  // );
+
   return (
     <div
       onMouseEnter={() => setHover(true)}
@@ -29,7 +39,14 @@ export default function ProductCard() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: hover ? 1 : 0 }}
-              className="flex flex-wrap gap-2 items-center justify-center transition "
+              style={{
+                display: "flex",           // Corresponds to "flex"
+                flexWrap: "wrap",          // Corresponds to "flex-wrap"
+                gap: "0.5rem",             // Corresponds to "gap-2" (2 * 0.25rem = 0.5rem)
+                alignItems: "center",      // Corresponds to "items-center"
+                justifyContent: "center",  // Corresponds to "justify-center"
+                transition: "all 0.2s",    // Corresponds to "transition" (default transition effect)
+              }}              
             >
               <motion.div
                 initial={{ y: -100 }}

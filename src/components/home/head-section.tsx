@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import { useEffect, useState } from "react";
 
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "../ui/carousel";
 import Image from "next/image";
 
 const heading = {
@@ -12,16 +13,34 @@ const heading = {
 };
 
 export default function HeadSection() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setTimeout(() => {
+      if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
+        setCurrent(0);
+        api.scrollTo(0);
+      } else {
+        api.scrollNext();
+        setCurrent(current + 1);
+      }
+    }, 2000);
+  }, [api, current]);
   return (
-    <div className=" md:mt-7 mb-4 ml-4 mr-4">
+    <div className=" md:mt-7 mb-4 ml-4 mr-4 pb-16">
       <div className=" flex items-center justify-center gap-4 p-5  md:p-10 flex-col text-center">
-        <div className=" text-lg md:text-5xl  tracking-tight  ">
+        <div className=" text-3xl md:text-5xl  tracking-tight  ">
           {heading.title}
         </div>
         <div className="text-sm md:text-base">{heading.subtitle}</div>
       </div>
       <div className="">
-        <Carousel className=" p-0">
+        <Carousel setApi={setApi} className=" p-0">
           <CarouselContent className=" p-0">
             <CarouselItem className="md:basis-1/2 p-0 ">
               <div>

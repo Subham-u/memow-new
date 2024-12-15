@@ -1,9 +1,9 @@
 import MemoApp from "@/components/instantbooking/instant";
 
 export default function Home() {
-    return (
-      <div>
-        <MemoApp/>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <MemoApp />
+    </div>
+  );
+}

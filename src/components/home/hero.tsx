@@ -11,7 +11,7 @@ export default function Hero() {
     <div className="relative min-h-screen w-full overflow-hidden p-8 ">
     {/* Background Image */}
     <Image
-      src="https://davidduchemin.com/WP/wp-content/uploads/2017/11/cjasonbradley_170902_26266.jpg"
+      src="https://img.freepik.com/premium-photo/person-capturing-photos-aurora-borealis-with-professional-camera_891336-24665.jpg"
       alt="People enjoying outdoors"
       width={1920}
       height={1080}
@@ -22,7 +22,7 @@ export default function Hero() {
     {/* Content Overlay */}
     <div className="relative z-10 px-4 py-8 md:py-16 lg:py-20 mx-auto max-w-7xl h-full flex flex-col justify-between top-12">
       <div className="flex flex-col items-start gap-6 md:gap-8">
-        <h1 className="max-w-3xl text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight text-white">
+        <h1 className="max-w-4xl text-4xl md:text-4xl lg:text-6xl font-bold tracking-tight text-white">
         Book Your Shoot, Save Your Mémories Instantly.
         </h1>
         

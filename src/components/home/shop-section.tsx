@@ -76,7 +76,7 @@ export default function ShopSection() {
     <div>
       <div className=" px-3 md:mt-7 md:mb-7">
         <div className=" flex items-center justify-center gap-4 p-5  md:p-10 flex-col text-center">
-          <div className=" text-lg md:text-5xl  tracking-tight  ">
+          <div className=" text-3xl md:text-5xl  tracking-tight  ">
             {heading.title}
           </div>
           <div className="text-sm md:text-base">{heading.subtitle}</div>
@@ -112,7 +112,7 @@ export default function ShopSection() {
                 key={index}
                 variant="ghost"
                 size="icon"
-                className={`w-3 h-3 rounded-full p-0 ${
+                className={`w-2 h-2 rounded-full p-0 ${
                   index === current ? "bg-primary" : "bg-primary/30"
                 }`}
                 onClick={() => api?.scrollTo(index)}

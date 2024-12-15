@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import Image from "next/image"
 
 export default function ImageEditingSuite() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
@@ -25,9 +26,11 @@ export default function ImageEditingSuite() {
   const ImageUploader = () => (
     <div className="aspect-square bg-white rounded-lg flex items-center justify-center border border-gray-200 shadow-sm">
       {selectedImage ? (
-        <img
+        <Image
           src={selectedImage}
           alt="Uploaded"
+          width={500} 
+          height={500}
           className="w-full h-full object-cover rounded-lg"
         />
       ) : (

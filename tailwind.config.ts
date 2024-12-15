@@ -72,23 +72,44 @@ export default {
   				to: {
   					transform: 'translateY(calc(-100% - var(--gap)))'
   				}
+  			},
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
   			}
   		},
-		extend: {
-			keyframes: {
-			  'caret-blink': {
-				'0%,70%,100%': { opacity: '1' },
-				'20%,50%': { opacity: '0' },
-			  },
-			},
-		    animation: {
-			  'caret-blink': 'caret-blink 1.25s ease-out infinite',
-			},
-		},
-	  
+  		extend: {
+  			keyframes: {
+  				'caret-blink': {
+  					'0%,70%,100%': {
+  						opacity: '1'
+  					},
+  					'20%,50%': {
+  						opacity: '0'
+  					}
+  				}
+  			},
+  			animation: {
+  				'caret-blink': 'caret-blink 1.25s ease-out infinite'
+  			}
+  		},
   		animation: {
   			marquee: 'marquee var(--duration) infinite linear',
-  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
+  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },

@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import SearchIcon from "@/assets/icons/search.svg"
 import { Input } from "@/components/ui/input";
 // import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";

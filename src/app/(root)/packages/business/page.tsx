@@ -1,13 +1,16 @@
-import React from 'react';
-import HeroService from '@/components/service/hero-service';
-import ExperienceCards from '@/components/product/experience-cards';
+import React from "react";
+import HeroService from "@/components/service/hero-service";
+import ExperienceCards from "@/components/product/experience-cards";
+import { CategorySection } from "@/components/product/CategorySection";
+import { photographyPackages } from "@/components/data/packages";
 
 export default function Home() {
+
   return (
     <>
-    <HeroService/>
-    <ExperienceCards/>
-    {/* <div className="min-h-screen bg-gray-50">
+      <HeroService />
+      <ExperienceCards />
+      <div className="min-h-screen bg-gray-50">
       <main>
         {Object.entries(photographyPackages).map(([key, category]) => (
           <CategorySection
@@ -19,7 +22,7 @@ export default function Home() {
           />
         ))}
       </main>
-    </div> */}
+    </div>
     </>
   );
 }

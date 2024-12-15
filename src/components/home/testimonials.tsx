@@ -1,129 +1,152 @@
-"use client";
+'use client'
 
-import React from "react";
-import { Card } from "../ui/card";
-import { Star } from "lucide-react";
-import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "../ui/carousel";
-import { type CarouselApi } from "@/components/ui/carousel";
-import { Button } from "../ui/button";
+import { useState } from 'react'
+import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
+import Image from 'next/image'
 
-const heading = {
-  title: "Customer review",
-  subtitle:
-    "Inspire and let yourself be inspired, from one unique fashion to another.",
-};
+export default function TestimonialSlider() {
+  const [currentSlide, setCurrentSlide] = useState(0)
 
-export default function Testimonials() {
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
-
-  React.useEffect(() => {
-    if (!api) {
-      return;
+  const testimonials = [
+    {
+      id: 1,
+      name: 'Jhonatan Albert',
+      location: 'Lombok, Indonesia',
+      rating: 5.0,
+      quote: 'THE SANTECO TUMBLER IS A GAME-CHANGER! IT KEEPS MY DRINKS HOT FOR HOURS AND COLD EVEN LONGER.',
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQHq0nsMxLEv1Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1704344422059?e=1738800000&v=beta&t=lMhlRfv9Uo8ulMsk0XtLNqvwvaleAX4YdN7iuJhbH5g',
+      thumbnail: 'https://media.licdn.com/dms/image/v2/D5603AQHq0nsMxLEv1Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1704344422059?e=1738800000&v=beta&t=lMhlRfv9Uo8ulMsk0XtLNqvwvaleAX4YdN7iuJhbH5g'
+    },
+    {
+      id: 2,
+      name: 'Sarah Johnson',
+      location: 'New York, USA',
+      rating: 4.5,
+      quote: 'INCREDIBLE PRODUCT! THE QUALITY EXCEEDED MY EXPECTATIONS. HIGHLY RECOMMENDED!',
+      image: 'https://media.licdn.com/dms/image/v2/D4D03AQHfVlTvQvWMKA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726288720304?e=1738800000&v=beta&t=_pYuKNVwjSyrJMmiFSQt_BJcThEq46v61DQNmVyj1bg',
+      thumbnail: 'https://media.licdn.com/dms/image/v2/D4D03AQHfVlTvQvWMKA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726288720304?e=1738800000&v=beta&t=_pYuKNVwjSyrJMmiFSQt_BJcThEq46v61DQNmVyj1bg'
+    },
+    {
+      id: 3,
+      name: 'Akira Tanaka',
+      location: 'Tokyo, Japan',
+      rating: 5.0,
+      quote: 'PERFECT FOR MY DAILY COMMUTE. SLEEK DESIGN AND EXCEPTIONAL PERFORMANCE.',
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQG_DsF8NjF6wQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1715545679949?e=1738800000&v=beta&t=Ukkly2ks6PuQUdXanNFLi6uI7_ZNPaiJ0S1YGGelb3U',
+      thumbnail: 'https://media.licdn.com/dms/image/v2/D5603AQG_DsF8NjF6wQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1715545679949?e=1738800000&v=beta&t=Ukkly2ks6PuQUdXanNFLi6uI7_ZNPaiJ0S1YGGelb3U'
     }
+  ]
 
-    setCurrent(api.selectedScrollSnap());
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % testimonials.length)
+  }
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
+
   return (
-    <div className=" p-3 md:mt-7 ">
-      <div className=" flex items-center justify-center gap-4 p-5  md:p-10 flex-col text-center">
-        <div className=" text-lg md:text-5xl  tracking-tight  ">
-          {heading.title}
+    <div className="max-w-6xl mx-auto px-4 py-12">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <div className="inline-block bg-[#6B46C1] text-white px-6 py-2 rounded-lg mb-6">
+          OUR CUSTOMER
         </div>
-        <div className="text-sm md:text-base">{heading.subtitle}</div>
+        <h2 className="text-5xl font-bold mb-8">
+          SATISFACTION
+          <br />
+          GUARANTEED
+        </h2>
+        <p className="text-gray-600 max-w-xl mx-auto">
+          We Take Great Pride In The Satisfaction Of Our Clients, As Evidenced By Their Glowing Feedback About Our Exceptional Service.
+        </p>
       </div>
-      <div className=" max-w-screen-2xl mx-auto">
-        {" "}
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          setApi={setApi}
-          className="w-full"
-        >
-          <CarouselContent className="">
-            {Array.from({ length: 5 }).map((category, index) => (
-              <CarouselItem
-                key={index}
-                className="basis-full md:basis-1/2 lg:basis-1/2 xl:basis-1/3 w-1/3 lg:w-1/2 xl:w-1/3"
-              >
-                <TestimonialsCard />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselNext className=" hidden md:block" />
-          <CarouselPrevious className=" hidden md:block" />
-        </Carousel>
-      </div>
-      <div className=" flex items-center justify-center gap-2 p-3 md:mt-10 mt-5">
-        {[...Array(5)].map((_, index) => (
-          <Button
-            key={index}
-            variant="ghost"
-            size="icon"
-            className={`w-3 h-3 rounded-full p-0 ${
-              index === current ? "bg-primary" : "bg-primary/30"
-            }`}
-            onClick={() => api?.scrollTo(index)}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
-function TestimonialsCard() {
-  return (
-    <Card className=" rounded-lg border p-4 md:p-6 ">
-      <div className=" flex flex-col gap-5">
-        <div className="flex space-x-1">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star
-              key={i}
-              className="w-5 h-5 fill-current text-orange-500"
-              aria-hidden="true"
-            />
+      {/* Navigation */}
+      <div className="flex justify-end gap-4 mb-8">
+        <button
+          onClick={prevSlide}
+          className="p-4 rounded-full border hover:bg-gray-50 transition-colors"
+          aria-label="Previous testimonial"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="p-4 rounded-full border hover:bg-gray-50 transition-colors"
+          aria-label="Next testimonial"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Testimonial Content */}
+      <div className="flex items-start gap-8">
+        {/* Thumbnails */}
+        <div className="hidden md:flex flex-col gap-4">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={testimonial.id}
+              className={`w-24 h-24 rounded-lg overflow-hidden ${
+                index === currentSlide ? 'ring-2 ring-[#6B46C1]' : 'bg-gray-100'
+              }`}
+              onClick={() => setCurrentSlide(index)}
+              style={{ cursor: 'pointer' }}
+            >
+              <Image
+                src={testimonial.thumbnail}
+                alt={`${testimonial.name} thumbnail`}
+                width={96}
+                height={96}
+                className="w-full h-full object-cover"
+              />
+            </div>
           ))}
         </div>
-        <div className="text-lg font-bold">Best Online Store</div>
-        <div className="text-base italic ">
-          “I always find something stylish and affordable on this web fashion
-          site”
-        </div>
-        <div>
-          <div className="text-base font-semibold">shashi vadan</div>
-          <div className="">Customer from India</div>
-        </div>
-        <div className=" h-[1px] bg-zinc-600/50 w-full"></div>
-        <div className="flex justify-start">
-          <div>
-            <Image
-              src="/stock/PackageOff1.jpg"
-              alt="Ribbed Tank Top"
-              width={60}
-              height={100}
-              className=" h-[100px]  object-cover rounded-md "
-            />
-          </div>
-          <div className=" px-6 flex flex-col  items-end justify-center gap-4">
-            <div>Jersey </div>
-            <div className="font-semibold">$18.00</div>
+
+        {/* Main Testimonial */}
+        <div className="flex-1">
+          <div className="bg-gray-50 rounded-lg p-8">
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              <div className="flex-1">
+                <Image
+                  src={testimonials[currentSlide].image}
+                  alt={testimonials[currentSlide].name}
+                  width={400}
+                  height={400}
+                  className="rounded-lg w-full h-auto"
+                />
+                <div className="mt-4">
+                  <h3 className="text-2xl font-bold">{testimonials[currentSlide].name}</h3>
+                  <p className="text-gray-600">{testimonials[currentSlide].location}</p>
+                  <div className="flex items-center gap-1 mt-2">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-5 h-5 ${
+                          i < Math.floor(testimonials[currentSlide].rating)
+                            ? 'fill-yellow-400 text-yellow-400'
+                            : 'fill-gray-300 text-gray-300'
+                        }`}
+                      />
+                    ))}
+                    <span className="ml-2 text-lg">{testimonials[currentSlide].rating.toFixed(1)}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <div className="flex-1">
+                <div className="text-[80px] text-gray-200 leading-none">"</div>
+                <p className="text-2xl font-bold leading-tight">
+                  {testimonials[currentSlide].quote}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </Card>
-  );
+    </div>
+  )
 }
+

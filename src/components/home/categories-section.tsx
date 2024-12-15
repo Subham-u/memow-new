@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Heart, ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
+import { ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -15,7 +16,7 @@ interface Product {
 }
 
 const productsByCategory: Record<string, Product[]> = {
-  'Discover Our Latest Tech': [
+  'Occasions': [
     {
       id: '1',
       name: 'Smart Watch Pro',
@@ -45,7 +46,7 @@ const productsByCategory: Record<string, Product[]> = {
       image: '/placeholder.svg?height=300&width=300',
     },
   ],
-  'Classic Tech Favorites': [
+  'Business': [
     {
       id: '5',
       name: 'Retro Gaming Console',
@@ -75,7 +76,7 @@ const productsByCategory: Record<string, Product[]> = {
       image: '/placeholder.svg?height=300&width=300',
     },
   ],
-  'Upcoming Innovations': [
+  'Instant Booking': [
     {
       id: '9',
       name: 'Holographic Display',
@@ -118,17 +119,6 @@ export default function ProductCatalog() {
     setProducts(productsByCategory[categories[currentCategory]]);
   }, [currentCategory]);
 
-  const toggleFavorite = (productId: string) => {
-    setFavorites(prev => {
-      const newFavorites = new Set(prev)
-      if (newFavorites.has(productId)) {
-        newFavorites.delete(productId)
-      } else {
-        newFavorites.add(productId)
-      }
-      return newFavorites
-    })
-  }
 
   const toggleAddToCart = (productId: string) => {
     setAddedToCart(prev => {
@@ -143,11 +133,11 @@ export default function ProductCatalog() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-20">
       <div className="text-center mb-12">
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-8">
           <div className="bg-[#6B46C1] text-white px-6 py-2 rounded-lg shadow-md">
-            <span className="text-lg font-black tracking-wide">HOT SERVICE</span>
+            <span className="text-base font-black tracking-wide">HOT PACKAGES</span>
           </div>
         </div>
         <div className="flex justify-between items-center mb-4">
@@ -160,7 +150,7 @@ export default function ProductCatalog() {
             <ChevronLeft className="h-4 w-4" />
             <span className="sr-only">Previous category</span>
           </Button>
-          <h2 className="text-2xl font-semibold">{categories[currentCategory]}</h2>
+          <h2 className="text-3xl font-semibold">{categories[currentCategory]}</h2>
           <Button 
             onClick={() => setCurrentCategory((prev) => (prev + 1) % categories.length)}
             variant="outline"
@@ -175,12 +165,6 @@ export default function ProductCatalog() {
         <p className="text-gray-600 max-w-2xl mx-auto">
           Explore cutting-edge gadgets designed to enhance your daily life and keep you connected.
         </p>
-        {/* <div className="absolute p-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          <button className="w-2 h-2 rounded-full bg-[#6B46C1]" aria-current="true" />
-          <button className="w-2 h-2 rounded-full bg-gray-300" />
-          <button className="w-2 h-2 rounded-full bg-gray-300" />
-        </div> */}
-       
       </div>
 
 
@@ -189,16 +173,18 @@ export default function ProductCatalog() {
           <Card key={product.id} className="overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105">
             <CardContent className="p-4">
               <div className="relative mb-4">
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
+                  width={500} 
+                  height={500}
                   className="w-full h-48 object-cover rounded-md"
                 />
               </div>
               <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
               <p className="text-sm text-gray-600 mb-4">{product.description}</p>
               <div className="flex justify-between items-center">
-                <span className="text-xl font-bold text-red-600">${product.price.toFixed(2)}</span>
+                {/* <span className="text-xl font-bold text-red-600">${product.price.toFixed(2)}</span> */}
                 {addedToCart.has(product.id) ? (
                   <Badge variant="secondary" className="bg-green-500 text-white">Added</Badge>
                 ) : (

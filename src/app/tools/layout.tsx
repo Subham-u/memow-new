@@ -1,9 +1,5 @@
 import MainNav from "@/components/navbar/main-nav"
 import { NavMenu } from "@/components/tools/sidebar"
-import Footer from "@/components/footer/footer";
-import FeatureSection from "@/components/tools/banner";
-import { Search } from "@/components/tools/search";
-import Balance from "@/components/tools/balance";
 
 export default function ToolsLayout({
     children,
