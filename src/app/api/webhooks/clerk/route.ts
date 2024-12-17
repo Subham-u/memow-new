@@ -10,6 +10,7 @@ import { createUser, deleteUser, updateUser } from "@/lib/actions/user.actions";
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+  console.log("Web hook hit for user")
 
   if (!WEBHOOK_SECRET) {
     throw new Error(
@@ -22,7 +23,6 @@ export async function POST(req: Request) {
   const svix_id = (await headerPayload).get("svix-id");
   const svix_timestamp = (await headerPayload).get("svix-timestamp");
   const svix_signature = (await headerPayload).get("svix-signature");
-
   // If there are no headers, error out
   if (!svix_id || !svix_timestamp || !svix_signature) {
     return new Response("Error occured -- no svix headers", {
