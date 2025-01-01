@@ -4,6 +4,7 @@
 
 body {
   font-family: var(--font-albert-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 @layer base {
@@ -111,3 +112,9 @@ body {
 .package-carousel .swiper-slide > div {
   height: 100%;
 }
+
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+

@@ -2,7 +2,7 @@ import HeroVideoDialog from "../ui/hero-video-dialog";
 
 export function HeroVideoDialogDemoTopInBottomOut() {
   return (
-    <div className="relative p-48">
+    <div className="relative mt-8 p-8 max-w-7xl mx-auto">
       <HeroVideoDialog
         className="dark:hidden block"
         animationStyle="top-in-bottom-out"

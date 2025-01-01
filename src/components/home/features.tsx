@@ -83,7 +83,7 @@ export const Feature6 = () => (
           <div className="bg-muted rounded-md h-full lg:col-span-2 p-6 aspect-square lg:aspect-auto flex flex-col justify-between relative overflow-hidden group">
             <div className="absolute inset-0">
               <Image 
-                src="https://www.picdrop.com/web/media/pages/articles/how-to-make-a-photography-portfolio/bf7ca4fef0-1733756850/3.-organize-your-work-thematically-kopie-1680x-q75.jpg" 
+                src="https://theloftonking.com/wp-content/uploads/2020/12/featured-image-776x517.jpg" 
                 alt="Personalized Services" 
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-110"

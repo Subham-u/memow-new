@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react';
 import { motion } from "framer-motion"
 import { Download, Sparkles, Star, ArrowUpRight } from "lucide-react"
 import Image from 'next/image';
-import App from "@/assets/phone_image.png"
+// import App from "@/assets/phone_image.png"
 
 export default function MemoApp() {
     const [status, setStatus] = useState<boolean>(false); // Explicit boolean type
@@ -105,7 +105,7 @@ export default function MemoApp() {
               <div className="relative w-full max-w-[260px] mx-auto lg:max-w-[280px]">
                 <div className="relative overflow-hidden rounded-[2.5rem] shadow-xl">
                 <Image
-                  src={App} // Path to your image or imported image
+                  src="/assets/phone_image.png" // Path to your image or imported image
                   alt="App screenshot" // Descriptive alt text
                   height={1200}
                   width={1200}

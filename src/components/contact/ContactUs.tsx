@@ -11,9 +11,34 @@ import { format } from "date-fns";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { createContact } from "@/lib/actions/contact.actions";
+import { useRouter } from "next/navigation";
 
 export const Contact1 = () => {
-  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [date, setDate] = useState<Date | undefined >(new Date());
+  const [firstName, setFirstname] = useState<String>(new String());
+  const [lastName, setLastname] =  useState<String>(new String());
+  const [email, setEmail] = useState<String>(new String());
+  const [message, setMessage] = useState<String>(new String());
+  const router = useRouter();
+
+  async function createContactUs(){
+  try {
+    const newConatct = await createContact({
+      date,
+      firstName,
+      lastName,
+      email,
+      message,
+    })
+    if (newConatct){
+      router.push(`/`)
+    }
+    console.log("New contact created successfully:", newConatct);
+  } catch (error) {
+    console.log(error);
+  }
+  }
 
   return (
     <div className="w-full py-20 lg:py-40 px-4">
@@ -94,22 +119,22 @@ export const Contact1 = () => {
               </div>
               <div className="grid w-full max-w-sm items-center gap-1">
                 <Label htmlFor="firstname">First name</Label>
-                <Input id="firstname" type="text" />
+                <Input id="firstname" type="text" onChange={(e) => {setFirstname(e.target.value)}} required/>
               </div>
               <div className="grid w-full max-w-sm items-center gap-1">
                 <Label htmlFor="lastname">Last name</Label>
-                <Input id="lastname" type="text" />
+                <Input id="lastname" type="text" onChange={(e) => {setLastname(e.target.value)}} required/>
               </div>
               <div className="grid w-full max-w-sm items-center gap-1">
                 <Label htmlFor="picture">Email</Label>
-                <Input id="picture" type="email" />
+                <Input id="picture" type="email" onChange={(e) => {setEmail(e.target.value)}} required/>
               </div>
               <div className="grid w-full max-w-sm items-center gap-1">
                 <Label htmlFor="picture">Message</Label>
-                <Textarea id="Message"/>
+                <Textarea id="Message" onChange={(e) => {setMessage(e.target.value)}} required/>
               </div>
 
-              <Button className="gap-4 w-full" type="submit">
+              <Button className="gap-4 w-full" type="submit" onClick={createContactUs}>
                 Book the meeting <MoveRight className="w-4 h-4" />
               </Button>
             </div>

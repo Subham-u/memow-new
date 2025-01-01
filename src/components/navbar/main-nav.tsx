@@ -18,6 +18,7 @@ import MobileNav from "./mobile-nav";
 import SearchBar from "./search";
 import LoginModal from "./login-modal";
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import ScrollProgress from "../ui/scroll-progress";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -39,8 +40,10 @@ const components: { title: string; href: string; description: string }[] = [
 
 export default function MainNav() {
   return (
-    <div className="lg:px-16 ">
-      <header className="sticky top-0 z-50 w-full dark:bg-gray-900 ">
+    <>
+    <ScrollProgress  className="sticky top-[79px] z-40"/>
+    <div className="supports-backdrop-blur:bg-background/90 sticky top-0 w-full bg-background/40 backdrop-blur-xl z-50 lg:px-16 w-full">
+      <header className="dark:bg-gray-900 z-50">
         <div className="flex h-20 items-center justify-between">
           <div className="flex items-center">
             <MobileNav />
@@ -63,7 +66,7 @@ export default function MainNav() {
                 <NavigationMenuLink
                   asChild
                   className={cn(
-                    "group inline-flex text-base font-bold h-9 w-max bg-transparent items-center justify-center rounded-md px-4 py-2 dark:hover:bg-gray-700 "
+                    "group inline-flex text-base font-bold h-9 w-max bg-transparent items-center justify-center rounded-md px-4 py-2 dark:hover:bg-gray-500 "
                   )}
                 >
                   <Link href="/" className="">
@@ -72,7 +75,7 @@ export default function MainNav() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="font-bold bg-transparent dark:text-white dark:hover:bg-gray-700">
+                <NavigationMenuTrigger className="font-bold bg-transparent dark:text-white dark:hover:bg-gray-500">
                   Packages
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -166,6 +169,13 @@ export default function MainNav() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                  <Button variant="ghost" asChild className="font-semibold">
+                    <Link href="/contact-us">Contact US</Link>
+                  </Button>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
                 <NavigationMenuLink asChild className={cn(" ")}>
                   <Button variant="ghost" asChild className="font-semibold">
                     <Link href="/past-booking">Past booking</Link>
@@ -200,6 +210,7 @@ export default function MainNav() {
           </div>
         </div>
       </header>
-    </div>
+      </div>
+    </>
   );
 }

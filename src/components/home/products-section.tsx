@@ -1,10 +1,21 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import HyperText from "../ui/hyper-text"
+import { CoolMode } from "../ui/cool-mode"
+import MorphingText from "../ui/morphing-text"
+import ScratchToReveal from "../ui/scratch-to-reveal"
+
+
+const texts = [
+  "MEMOWRIES",
+  "CAPTURE",
+  "PRESERVE",
+  "Smooth",
+  "Transition",
+];
 
 export default function BeverageLanding() {
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden p-4 md:p-8">
+    <div className="container mx-auto min-h-screen max-w-8xl bg-white relative overflow-hidden p-4 md:p-8">
       {/* Background Text */}
       <div className="absolute top-0 left-0 text-gray-100 text-[150px] md:text-[300px] font-bold leading-none z-0">
        CAPTURE
@@ -42,19 +53,31 @@ export default function BeverageLanding() {
             {/* <h1 className="text-6xl md:text-9xl font-bold text-[#FF7748] text-center leading-none">
               MEMOWRIES
             </h1> */}
-            <HyperText
+            {/* <HyperText
               className="text-6xl md:text-9xl font-bold text-[#FF7748] text-center leading-none"
               text="MEMOWRIES"
-            />
+            /> */}
+            <MorphingText texts={texts} className="text-6xl md:text-9xl font-bold text-[#FF7748] text-center leading-none"/>
             {/* Polaroid 2 */}
             <div className="md:hidden transform rotate-6 bg-white p-1 shadow-md">
-              <Image
+              {/* <Image
                 src="https://nestmatrimony.com/blog/wp-content/uploads/2021/03/indian-4160039-scaled.jpg"
                 alt="Product showcase"
                 width={320}
                 height={320}
                 className="object-cover"
-              />
+              /> */}
+
+            <ScratchToReveal
+            width={250}
+            height={250}
+            minScratchPercentage={70}
+            className="flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-gray-100"
+            // onComplete={handleComplete}
+            gradientColors={["#A97CF8", "#F38CB8", "#FDCC92"]}
+            >
+            <p className="text-9xl">😎</p>
+            </ScratchToReveal>
             </div>
           </div>
 
@@ -63,6 +86,7 @@ export default function BeverageLanding() {
             <h2 className="text-3xl md:text-5xl font-bold text-black">
             YOUR MEMOWRIES<br />PATNER
             </h2>
+            
           </div>
 
           {/* Bottom Section */}
@@ -70,11 +94,13 @@ export default function BeverageLanding() {
             <p className="text-sm md:text-base text-gray-800 text-center max-w-lg">
               Crafted With High-Quality, Non-Toxic Materials To Ensure Safety, Durability, And Peace Of Mind For Everyday Use
             </p>
+            <CoolMode>
             <Button
               className="mt-4 bg-[#FF7748] hover:bg-[#ff8f69] text-white px-6 py-2 rounded-full text-sm font-semibold"
             >
-              Explore All Service
+              Start Making Memories
             </Button>
+            </CoolMode>
           </div>
 
           {/* Polaroid 3 */}

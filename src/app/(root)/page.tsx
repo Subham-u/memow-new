@@ -8,19 +8,20 @@ import ShopSection from "@/components/home/shop-section";
 import Testimonials from "@/components/home/testimonials";
 import { Feature6 } from "@/components/home/features";
 import { HeroVideoDialogDemoTopInBottomOut } from "@/components/home/video";
+import HeroPage from "@/components/home/heropage";
 
 export default function Home() {
   return (
     <div>
       <Hero />
       <HeroMeq />
+      <HeroPage />
       <CategoriesSection />
       <BeverageLanding />
       <HeroVideoDialogDemoTopInBottomOut />
       <Feature6 />
       <HeadSection />
       <Testimonials />
-      <ShopSection />
       <FeaturesSection />
     </div>
   );

@@ -1,6 +1,6 @@
 export const photographyPackages = {
   "Pre Wedding": {
-    title: "Pre-Wedding",
+    title: "Pre Wedding",
     oneline: "Your pre-wedding photos shouldn’t look like a rom-com blooper reel. Let us write your love story in 4K, not pixelated heartbreak.",
     description: "Pre-Wedding Shoots: Swipe Right for the Best VibesThey say the wedding is the main event, but we all know the pre-wedding shoot is where the real magic happens. At MEMOW, we don’t just take pictures, we turn your love story into a reel-worthy blockbuster. Forget blurry filters and awkward poses. We serve crisp 1080p, 100+ edited images, and cinematic video that’ll have your ex regretting life choices. With drones, lights, and top-tier cameras, you get more than just a shoot—you get bragging rights.📸 Why Choose Us?Other places might give you one location and a tired old photographer. We say nah. We give you up to 4 locations, 3 Memow partners (yep, a whole squad), and storyboarding like you’re starring in your own rom-com.",
     packages: [
@@ -101,10 +101,10 @@ export const photographyPackages = {
           "2 location & 2 Outfit Changes",
           "Shoot Duration as per shoot requirement",
           "1 Mirror Less Camera",
-        "2 Memowries Partner",
-      "Light & Modifiers",
-      "Complimentary Memow Gifts"
-              ]
+           "2 Memowries Partner",
+          "Light & Modifiers",
+          "Complimentary Memow Gifts"
+        ]
       },
       {
         name: "Celebrity Mom",
@@ -144,7 +144,6 @@ export const photographyPackages = {
           "Light & Modifiers",
           "3 Mirror Less Camera",
           "Complimentary Memow Gifts"
-
         ]
       }
     ]
@@ -214,8 +213,8 @@ export const photographyPackages = {
     ]
   },
  
-  "Parties & Events": {
-    title: "Parties & Events",
+  "Parties-Events": {
+    title: "Parties-Events",
     oneline: "When the party’s wild, but your Insta feed is mild. We got you covered with pics that scream ‘legendary night’ (minus the hangover).",
     description: "Parties & Events: No Party Left UncapturedWhether you’re throwing the bash of the century or just hosting a chill event, MEMOW has you covered. Other guys might send a photographer who’ll show up late and miss the best moments (seriously?), but we bring a whole team, multiple cameras, and pro-level video that captures every champagne pop and epic dance move. You bring the party, we’ll bring the cinematic flair.🎉 Why Settle for Less?Let’s be honest, blurry pics and unedited footage aren’t it. With MEMOW, we provide everything from gimbals to drones, because your event deserves to look like a Netflix special. Oh, and we always deliver on time.",
     packages: [
@@ -235,7 +234,6 @@ export const photographyPackages = {
           "Light & Modifiers",
           " 2 Mirror Less Camera",
           "Complimentary Memow Gifts"
-        
         ]
       },
       {
@@ -255,7 +253,6 @@ export const photographyPackages = {
           "Gimble",
           "2 Full Frame Camera + 1 Mirror Less Camera",
           "Complimentary Memow Gifts"
-        
         ]
       },
       {
@@ -277,7 +274,6 @@ export const photographyPackages = {
           "1 Action Camera",
           "3 Full Frame Camera",
           "Complimentary Memow Gifts"
-        
         ]
       }
     ]
@@ -304,7 +300,6 @@ export const photographyPackages = {
           "Gimble",
           "2 Mirror Less Camera",
           "Complimentary Memow Gifts"
-        
         ]
       },
       {
@@ -326,7 +321,6 @@ export const photographyPackages = {
           "Model for shoot",
           "2 Full Frame Camera + 1 Mirror Less Camera",
           "Complimentary Memow Gifts"
-        
         ]
       },
       {
@@ -372,14 +366,10 @@ export const photographyPackages = {
           "1 Photographer & 1 Cinematographer",
           "3 Memowries Partner", 
           "Light & Modifiers",
-          
           "Gimble",
-          
-          
           "2 Mirror Less Camera",
           "Complimentary Memow Gifts"
         ]
-      
       },
       {
         name: "Luxury",
@@ -395,13 +385,10 @@ export const photographyPackages = {
           "2 Photographer & 1 Cinematographer",
           "3 Memowries Partner", 
           "Light & Modifiers",
-          
           "Gimble",
-         
           "1 Full Frame Camera + 2 Mirror Less Camera",
           "Complimentary Memow Gifts"
         ]
-      
       },
       {
         name: "Exclusive",
@@ -420,7 +407,6 @@ export const photographyPackages = {
           "Storyline provided",
           "Gimble",
           "Drone",
-          
           "3 Full Frame Camera + 1 Mirror Less Camera",
           "Complimentary Memow Gifts"
         ]
@@ -448,10 +434,7 @@ export const photographyPackages = {
           "1 Photographer & 1 Cinematographer",
           "3 Memowries Partner", 
           "Light & Modifiers",
-          
           "Gimble",
-          
-          
           "2 Mirror Less Camera",
           "Complimentary Memow Gifts"
         ]
@@ -470,9 +453,7 @@ export const photographyPackages = {
           "2 Photographer & 1 Cinematographer",
           "3 Memowries Partner", 
           "Light & Modifiers",
-          
           "Gimble",
-         
           "1 Full Frame Camera + 2 Mirror Less Camera",
           "Complimentary Memow Gifts"
         ]
@@ -521,10 +502,7 @@ export const photographyPackages = {
           "1 Photographer & 1 Cinematographer",
           "3 Memowries Partner", 
           "Light & Modifiers",
-          
           "Gimble",
-          
-          
           "2 Mirror Less Camera",
           "Complimentary Memow Gifts"
         ]
@@ -594,10 +572,7 @@ export const photographyPackages = {
           "1 Photographer & 1 Cinematographer",
           "3 Memowries Partner", 
           "Light & Modifiers",
-          
           "Gimble",
-          
-          
           "2 Mirror Less Camera",
           "Complimentary Memow Gifts"
         ]
@@ -623,9 +598,7 @@ export const photographyPackages = {
           "2 Photographer & 1 Cinematographer",
           "4 Memowries Partner", 
           "Light & Modifiers",
-          
           "Gimble",
-          
           "Digital Album",
           "3 Mirrorless Camera",
           "Complimentary Memow Gifts"
@@ -645,7 +618,6 @@ export const photographyPackages = {
           "2 Photographer & 1 Cinematographer",
           "5 Memowries Partner", 
           "Light & Modifiers",
-          
           "Gimble",
           "Drone",
           "Digital Album",
@@ -667,7 +639,6 @@ export const photographyPackages = {
           "2 Photographer & 2 Cinematographer",
           "6 Memowries Partner", 
           "Light & Modifiers",
-          
           "Gimble",
           "Drone",
           "Digital Album",

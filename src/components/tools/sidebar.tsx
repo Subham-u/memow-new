@@ -3,40 +3,46 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Image, Sparkles, Eraser, Palette, ShoppingCart, Layers2 } from 'lucide-react'
+import { Image, Sparkles, Eraser, Palette, ShoppingCart, Layers2, LayoutDashboard } from 'lucide-react'
 
 import { cn } from "@/lib/utils"
 
 const menuItems = [
   {
+    title: "Dashboard",
+    mbtitle: "dashboard",
+    icon: LayoutDashboard,
+    href: "/tools/image-modifiers",
+  },
+  {
     title: "Image Restore",
     mbtitle: "Restore",
     icon: Image,
-    href: "/tools/image-modifiers/restore?routeAttachment=restore",
+    href: "/tools/image-modifiers/transformations/add/restore",
   },
   {
     title: "Generative Fill",
     mbtitle: "Fill",
     icon: Sparkles,
-    href: "/tools/image-modifiers/fill?routeAttachment=generative-fill",
+    href: "/tools/image-modifiers/transformations/add/fill",
   },
   {
     title: "Object Remove",
     mbtitle: "Remove",
     icon: Eraser,
-    href: "/tools/image-modifiers/remove?routeAttachment=object-remove",
+    href: "/tools/image-modifiers/transformations/add/remove",
   },
   {
     title: "Object Recolor",
     mbtitle: "Recolor",
     icon: Palette,
-    href: "/tools/image-modifiers/recolor?routeAttachment=object-recolor",
+    href: "/tools/image-modifiers/transformations/add/recolor",
   },
   {
     title: "Background Remove",
     mbtitle: "Background",
     icon: Layers2,
-    href: "/tools/image-modifiers/background?routeAttachment=background-remove",
+    href: "/tools/image-modifiers/transformations/add/removeBackground",
   },
   {
     title: "Buy Credits",
@@ -52,7 +58,7 @@ export function NavMenu() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <div className="fixed left-0 hidden h-screen w-64 flex-col border-r bg-background p-4 pt-8 md:flex">
+      <div className="fixed left-0 hidden h-screen w-62 flex-col border-r bg-background p-4 pt-8 md:flex">
         <nav className="flex flex-1 flex-col gap-1 py-20">
           {menuItems.map((item, index) => {
             const isActive = pathname === item.href

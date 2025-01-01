@@ -1,16 +1,41 @@
 import FeatureSection from "@/components/tools/banner";
-import { Search } from "@/components/tools/search";
+import { getUserImages, getAllImages } from "@/lib/actions/image.actions"
+import { getUserById } from "@/lib/actions/user.actions";
+import { Collection } from "@/components/tools/Collection";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+import { SearchParamProps } from "../../../../types";
 
-export default function Home() {
+const Home = async ( { params, searchParams } : SearchParamProps) => {
+  const searchParam = await searchParams
+    
+  const page = Number(searchParam?.page) || 1;
+
+  const { userId } = await auth();
+
+  if (!userId) redirect("/sign-in");
+
+  const user = await getUserById(userId);
+
+  const searchQuery = (searchParam?.query as string) || '';
+
+  const images = await getUserImages({ page, userId: user._id });  
+  // console.log(images);
     return (
-      <>
-      <div className="pt-24">
+      <div className="my-28">
+      {/* <div className="pt-24"> */}
         <FeatureSection/>
+      {/* </div> */}
+        <section className="sm:mt-12 ml-4 md:ml-20 mr-4 md:mr-20">
+        <Collection 
+          hasSearch={true}
+          images={images?.data}
+          totalPages={images?.totalPages}
+          page={page}
+        />
+      </section>
       </div>
-        <div className="md:flex-between mb-6 m-8 ml-20 flex flex-col gap-5 md:flex-row">
-          <h2 className="text-[30px] font-bold md:text-[36px] leading-[110%] text-dark-600">Recent Edits</h2>
-          <Search />
-        </div>
-      </>
     );
   }
+
+  export default Home;

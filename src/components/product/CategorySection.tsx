@@ -1,5 +1,6 @@
 import React from 'react';
 import { PackageCarousel } from './PackageCarousel';
+import ReviewSection from './review-section';
 
 interface Package {
   name: string;
@@ -25,7 +26,7 @@ export function CategorySection({ title, oneline, description, packages }: Categ
           <p className="text-xl text-gray-600 mb-6">{oneline}</p>
           <p className="text-gray-600 max-w-3xl mx-auto">{description}</p>
         </div>
-        <PackageCarousel packages={packages} />
+        <PackageCarousel title={title} packages={packages}/>
       </div>
     </section>
   );

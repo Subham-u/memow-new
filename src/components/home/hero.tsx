@@ -5,17 +5,33 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card"
 import { ArrowRight } from 'lucide-react'
+import HyperText from "../ui/hyper-text";
+import { VelocityScroll } from "../ui/scroll-based-velocity";
+
+
+ 
+const texts = [
+  "Hello",
+  "Morphing",
+  "Text",
+  "Animation",
+  "React",
+  "Component",
+  "Smooth",
+  "Transition",
+  "Engaging",
+];
 
 export default function Hero() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden p-8 ">
+    <div className="relative min-h-screen overflow-hidden p-8 ">
     {/* Background Image */}
     <Image
       src="https://img.freepik.com/premium-photo/person-capturing-photos-aurora-borealis-with-professional-camera_891336-24665.jpg"
       alt="People enjoying outdoors"
       width={1920}
       height={1080}
-      className="absolute inset-0 object-cover w-[98%] h-[95%] md:m-4 rounded-2xl "
+      className="absolute inset-0 object-cover w-full h-[98%] "
       priority
     />
     
@@ -56,9 +72,17 @@ export default function Hero() {
       </Card>
 
       {/* Brand Text */}
-      <h2 className="text-right text-6xl top-[150%] sm:text-8xl md:text-9xl lg:text-[14rem] font-black text-white opacity-90 leading-none tracking-tight mt-8 md:mt-0 md:absolute">
+      {/* <h2 className="text-right text-6xl top-[150%] sm:text-8xl md:text-9xl lg:text-[14rem] font-black text-white opacity-90 leading-none tracking-tight mt-8 md:mt-0 md:absolute">
         MEMOWRIES
-      </h2>
+      </h2> */}
+      <div className="absolute top-[135%] md:top-[145%] w-">
+      <HyperText
+        className="text-center mx-auto text-7xl z-50 sm:text-8xl md:text-8xl lg:text-[14rem] font-black text-white opacity-90 leading-none tracking-tight mt-8 md:mt-0 "
+        text="MEMOWRIES"
+      />
+
+      {/* <VelocityScroll className=" text-white">MAKE YOUR MEMOWRIES</VelocityScroll> */}
+        </div>
     </div>
   </div>
   );

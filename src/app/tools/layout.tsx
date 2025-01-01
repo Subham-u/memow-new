@@ -14,7 +14,6 @@ export default function ToolsLayout({
             </div>
            <NavMenu />
            <main className="flex-1 pb-16 md:pb-0 md:ml-64 ">
-            {/* <Banner/> */}
             {children}
           </main>
         </div>

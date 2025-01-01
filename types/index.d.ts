@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 
+import { promises } from "dns";
+
 // ====== USER PARAMS
 declare type CreateUserParams = {
   clerkId: string;
@@ -8,6 +10,48 @@ declare type CreateUserParams = {
   firstName: string;
   lastName: string;
   photo: string;
+};
+
+// ====== CONSTANTUS PARAMS
+declare type CreateContactParams = {
+  date: Date | undefined;
+  email: String;
+  firstName: String;
+  lastName: String;
+  message: String;
+};
+
+// ====== PAYMENTS PARAMS
+declare type PaymentParams = {
+  amount: number | String;
+  orderCreationId: String;
+  razorpayPaymentId: String;
+  razorpayOrderId: String;
+  razorpaySignature: String;
+  userId: string;
+};
+
+// ====== ORDER PARAMS
+declare type CreateBooking = {
+  bookingDate: Date | undefined;
+  firstName: String;
+  lastName: String;
+  MobileNo: String | Number;
+  Email: String;
+  originalPrice: String | Number;
+  offeredPrice: String | Number;
+  country: String;
+  location: {
+    type: string;
+    coordinates: [number, number];
+  };
+  landmark: String;
+  zipcode: String;
+  bookingInstruction: String;
+  bookingType: String;
+  bookingSubType: String;
+  userId: String;
+  paymentId: String;
 };
 
 declare type UpdateUserParams = {
@@ -114,8 +158,8 @@ declare type RemoveUrlQueryParams = {
 };
 
 declare type SearchParamProps = {
-  params: { id: string; type: TransformationTypeKey };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ id: string; type: TransformationTypeKey;}>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 declare type TransformationFormProps = {
@@ -135,4 +179,8 @@ declare type TransformedImageProps = {
   isTransforming: boolean;
   hasDownload?: boolean;
   setIsTransforming?: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+declare type CheckoutProps = {
+  user: any;
 };
